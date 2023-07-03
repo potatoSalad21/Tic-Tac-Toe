@@ -42,18 +42,18 @@ export default function Board() {
     setXisNext(!xIsNext);
   }
 
-  let outcome;
+  let status;
   const winner = calculateWinner(cells);
 
   if (winner) {
-    outcome = "Winner is: " + winner;
+    status = "Winner is: " + winner;
   } else {
-    outcome = "Next player: " + (xIsNext ? "X" : "O");
+    status = (xIsNext ? "X" : "O") + "'s Turn...";
   }
 
   return (
     <>
-      <h2 className="outcome">{outcome}</h2>
+      <h2 className="currentStatus">{status}</h2>
       <div className="board-row">
         <Square value={cells[0]} onSquareClick={() => handleClick(0)} />
         <Square value={cells[1]} onSquareClick={() => handleClick(1)} />
